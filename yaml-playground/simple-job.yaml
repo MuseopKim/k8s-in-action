@@ -9,11 +9,10 @@ spec:
   template:
     spec:
       containers:
-      - name: net-tools
-        image: sysnet4admin/net-tools
+      - name: busybox
+        image: busybox
         command: ["/bin/sh", "-c"]
         args:
         - sleep 60;
-          curlchk nginx;
       restartPolicy: Never
 

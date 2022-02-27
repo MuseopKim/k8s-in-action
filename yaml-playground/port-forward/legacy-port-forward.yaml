@@ -1,0 +1,12 @@
+# Pod for port forwarding
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pf-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+
+# k port-forward pf-pod 80:80
+

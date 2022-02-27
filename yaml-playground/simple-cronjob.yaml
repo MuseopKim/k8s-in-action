@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: simple-cron-job
+spec:
+  schedule: "*/1 * * * *"
+  successfulJobsHistoryLimit: 10    # CronJob 보존 설정
+  jobTemplate:             # Template for job
+    spec:                  # same as before
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox
+          restartPolicy: Never
+
