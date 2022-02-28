@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-default
+            port:
+              number: 80
+      - path: /something
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-something
+            port:
+              number: 80
+      - path: /good
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-good
+            port:
+              number: 80
+
